@@ -122,7 +122,37 @@ void menu(){
                 }
             }
             break;
+            case 3 :
+            printf("\n1. paket C tujuan kota C dengan waktu 4 hari dengan harga 2.000.000\n");
+            printf("2. paket C tujuan kota C dengan harga 550.000/hari, bisa milih waktu sesuai kebutuhan.\n\n");
+            getchar();
+            printf("apakah anda ingin memesan Y/N: ");
+            scanf("%c", &pilih);
+            printf("\n");
+            if(pilih == 'Y' || pilih == 'y'){
+                printf("pilih paket anda : ");
+                scanf("%i", &pilihan_libur);
 
+                if(pilihan_libur == 1){
+                printf("pesan tiket anda : ");
+                scanf("%i", &jumlah);
+                strcpy(order[jumlah_pesanan].paket, menu_paket[2]);
+                order[jumlah_pesanan].kuantitas = jumlah;
+                order[jumlah_pesanan].subtotal = 2000000 * jumlah;
+                jumlah_pesanan += 1;
+                }
+                else{
+                printf("berapa hari anda ingin mengambil waktu liburan : ");
+                scanf("%i", &jumlah);
+                printf("silahkan pilih tanggal berangkat : ");
+                scanf("%i", &pilih_tanggal_mulai);
+                strcpy(order[jumlah_pesanan].paket, menu_paket[2]);
+                order[jumlah_pesanan].kuantitas = jumlah;
+                order[jumlah_pesanan].subtotal = 550000 * jumlah;
+                order[jumlah_pesanan].tanggal_mulai = pilih_tanggal_mulai;
+                order[jumlah_pesanan].tanggal_selesai = pilih_tanggal_mulai + jumlah;
+                jumlah_pesanan += 1;
+                }
             }
             break;
         default :
