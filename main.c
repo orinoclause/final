@@ -55,6 +55,8 @@ void menu(){
     int pilihan_libur, waktu_libur, pilih_tanggal_mulai;
     int harga_hotel, tiket_pulang_pergi;
     char hotel;
+    char pesan_tiket_wisata, beli_tiket;
+
 
     tiket_pulang_pergi = 200000;
 
@@ -62,8 +64,7 @@ void menu(){
         case 1 :
             printf("\n1. paket A tujuan kota A dengan waktu 3 hari dengan harga 1.200.000\n");
             printf("2. paket A tujuan kota A dengan harga dan tempat yang menyesuaikan\n");
-            printf("3. paket A tujuan kota A dengan harga 500.000/hari, bisa milih waktu sesuai kebutuhan.\n");
-
+            printf("3. paket A tujuan kota A dengan harga 500.000/hari, bisa milih waktu sesuai kebutuhan.\n\n");
             getchar();
             printf("apakah anda ingin memesan Y/N: ");
             scanf("%c", &pilih);
@@ -75,7 +76,7 @@ void menu(){
                 if(pilihan_libur == 1){
                 printf("pesan tiket anda : ");
                 scanf("%i", &jumlah);
-                strcpy(order[jumlah_pesanan].paket, menu_paket[0]);
+                strcpy(order[jumlah_pesanan].paket, menu_paket[2]);
                 order[jumlah_pesanan].kuantitas = jumlah;
                 order[jumlah_pesanan].subtotal = 1200000 * jumlah;
                 jumlah_pesanan += 1;
@@ -83,7 +84,7 @@ void menu(){
                 else if(pilihan_libur == 2){
                 printf("1. tiket pulang pergi seharga Rp. 200.000\n");
                 printf("2. pilihan hotel : \n");
-                printf("A. hotel bintang 3 dengan harga 200.000\nB. hotel bintang 4 dengan harga 250.000\nC. hotel bintang 5 dengan harga 300.000\n");
+                printf("A. hotel bintang 3 dengan harga 150.000\nB. hotel bintang 4 dengan harga 200.000\nC. hotel bintang 5 dengan harga 250.000\n");
                 getchar();
                 printf("silahkan masukan pilihan hotel : ");
                 scanf("%c", &hotel);
@@ -93,54 +94,97 @@ void menu(){
                 scanf("%i", &jumlah);
                 printf("silahkan pilih tanggal berangkat : ");
                 scanf("%i", &pilih_tanggal_mulai);
+                getchar();
+                printf("ingin membeli tiket wisata seharga Rp 170.000? jika iya ketik y");
+                scanf("%c", &pesan_tiket_wisata);
+                if (pesan_tiket_wisata == 'y' || pesan_tiket_wisata == 'Y'){
+                        strcpy(order[jumlah_pesanan].paket, menu_paket[0]);
+                order[jumlah_pesanan].kuantitas = jumlah;
+                order[jumlah_pesanan].subtotal = 150000 * jumlah + tiket_pulang_pergi + 170000;
+                order[jumlah_pesanan].tanggal_mulai = pilih_tanggal_mulai;
+                order[jumlah_pesanan].tanggal_selesai = pilih_tanggal_mulai + jumlah;
+                jumlah_pesanan += 1;}
+
+                else{
                 strcpy(order[jumlah_pesanan].paket, menu_paket[0]);
                 order[jumlah_pesanan].kuantitas = jumlah;
-                order[jumlah_pesanan].subtotal = 200000 * jumlah + tiket_pulang_pergi;
+                order[jumlah_pesanan].subtotal = 150000 * jumlah + tiket_pulang_pergi;
                 order[jumlah_pesanan].tanggal_mulai = pilih_tanggal_mulai;
                 order[jumlah_pesanan].tanggal_selesai = pilih_tanggal_mulai + jumlah;
                 jumlah_pesanan += 1;
+                }
+                break;
 
                     case 'b' :
                 printf("berapa hari anda ingin mengambil waktu liburan : ");
                 scanf("%i", &jumlah);
                 printf("silahkan pilih tanggal berangkat : ");
                 scanf("%i", &pilih_tanggal_mulai);
+                getchar();
+                printf("ingin membeli tiket wisata seharga Rp 170.000? jika iya ketik y");
+                scanf("%c", &pesan_tiket_wisata);
+                if (pesan_tiket_wisata == 'y' || pesan_tiket_wisata == 'Y'){
+                        strcpy(order[jumlah_pesanan].paket, menu_paket[0]);
+                order[jumlah_pesanan].kuantitas = jumlah;
+                order[jumlah_pesanan].subtotal = 2000000 * jumlah + tiket_pulang_pergi + 170000;
+                order[jumlah_pesanan].tanggal_mulai = pilih_tanggal_mulai;
+                order[jumlah_pesanan].tanggal_selesai = pilih_tanggal_mulai + jumlah;
+                jumlah_pesanan += 1;}
+
+                else{
                 strcpy(order[jumlah_pesanan].paket, menu_paket[0]);
                 order[jumlah_pesanan].kuantitas = jumlah;
-                order[jumlah_pesanan].subtotal = 250000 * jumlah + tiket_pulang_pergi;
+                order[jumlah_pesanan].subtotal = 200000 * jumlah + tiket_pulang_pergi;
                 order[jumlah_pesanan].tanggal_mulai = pilih_tanggal_mulai;
                 order[jumlah_pesanan].tanggal_selesai = pilih_tanggal_mulai + jumlah;
                 jumlah_pesanan += 1;
+                }
+                break;
 
                     case 'c' :
                 printf("berapa hari anda ingin mengambil waktu liburan : ");
                 scanf("%i", &jumlah);
                 printf("silahkan pilih tanggal berangkat : ");
                 scanf("%i", &pilih_tanggal_mulai);
+                getchar();
+                printf("ingin membeli tiket wisata seharga Rp 170.000? jika iya ketik y");
+                scanf("%c", &pesan_tiket_wisata);
+                if (pesan_tiket_wisata == 'y' || pesan_tiket_wisata == 'Y'){
+                        strcpy(order[jumlah_pesanan].paket, menu_paket[0]);
+                order[jumlah_pesanan].kuantitas = jumlah;
+                order[jumlah_pesanan].subtotal = 250000 * jumlah + tiket_pulang_pergi + 170000;
+                order[jumlah_pesanan].tanggal_mulai = pilih_tanggal_mulai;
+                order[jumlah_pesanan].tanggal_selesai = pilih_tanggal_mulai + jumlah;
+                jumlah_pesanan += 1;}
+
+                else{
                 strcpy(order[jumlah_pesanan].paket, menu_paket[0]);
                 order[jumlah_pesanan].kuantitas = jumlah;
-                order[jumlah_pesanan].subtotal = 300000 * jumlah + tiket_pulang_pergi;
+                order[jumlah_pesanan].subtotal = 250000 * jumlah + tiket_pulang_pergi;
                 order[jumlah_pesanan].tanggal_mulai = pilih_tanggal_mulai;
                 order[jumlah_pesanan].tanggal_selesai = pilih_tanggal_mulai + jumlah;
                 jumlah_pesanan += 1;
                 }
+                break;
                 }
 
-                else {
-                printf("dengan harga Rp. 500.000/hari anda sudah mendapatkan:\n1. tiket pulang balik.\n2. tiket kamar hotel.\n3. tiket wisata.\n\n");
+                }
+                else{
+                printf("dengan harga Rp. 550.000/hari anda sudah mendapatkan:\n1. tiket pulang balik.\n2. tiket kamar hotel.\n3. tiket wisata.\n\n");
                 printf("berapa hari anda ingin mengambil waktu liburan : ");
                 scanf("%i", &jumlah);
                 printf("silahkan pilih tanggal berangkat : ");
                 scanf("%i", &pilih_tanggal_mulai);
-                strcpy(order[jumlah_pesanan].paket, menu_paket[0]);
+                strcpy(order[jumlah_pesanan].paket, menu_paket[2]);
                 order[jumlah_pesanan].kuantitas = jumlah;
-                order[jumlah_pesanan].subtotal = 500000 * jumlah;
+                order[jumlah_pesanan].subtotal = 550000 * jumlah;
                 order[jumlah_pesanan].tanggal_mulai = pilih_tanggal_mulai;
                 order[jumlah_pesanan].tanggal_selesai = pilih_tanggal_mulai + jumlah;
                 jumlah_pesanan += 1;
                 }
             }
             break;
+
         case 2 :
             printf("\n1. paket B tujuan kota B dengan waktu 4 hari dengan harga 1.300.000\n");
             printf("2. paket A tujuan kota A dengan harga dan tempat yang menyesuaikan\n");
@@ -174,36 +218,78 @@ void menu(){
                 scanf("%i", &jumlah);
                 printf("silahkan pilih tanggal berangkat : ");
                 scanf("%i", &pilih_tanggal_mulai);
+                getchar();
+                printf("ingin membeli tiket wisata seharga Rp 170.000? jika iya ketik y");
+                scanf("%c", &pesan_tiket_wisata);
+                if (pesan_tiket_wisata == 'y' || pesan_tiket_wisata == 'Y'){
+                        strcpy(order[jumlah_pesanan].paket, menu_paket[0]);
+                order[jumlah_pesanan].kuantitas = jumlah;
+                order[jumlah_pesanan].subtotal = 300000 * jumlah + tiket_pulang_pergi + 170000;
+                order[jumlah_pesanan].tanggal_mulai = pilih_tanggal_mulai;
+                order[jumlah_pesanan].tanggal_selesai = pilih_tanggal_mulai + jumlah;
+                jumlah_pesanan += 1;}
+
+                else{
                 strcpy(order[jumlah_pesanan].paket, menu_paket[0]);
                 order[jumlah_pesanan].kuantitas = jumlah;
                 order[jumlah_pesanan].subtotal = 300000 * jumlah + tiket_pulang_pergi;
                 order[jumlah_pesanan].tanggal_mulai = pilih_tanggal_mulai;
                 order[jumlah_pesanan].tanggal_selesai = pilih_tanggal_mulai + jumlah;
                 jumlah_pesanan += 1;
+                }
+                break;
 
                     case 'b' :
                 printf("berapa hari anda ingin mengambil waktu liburan : ");
                 scanf("%i", &jumlah);
                 printf("silahkan pilih tanggal berangkat : ");
                 scanf("%i", &pilih_tanggal_mulai);
+                getchar();
+                printf("ingin membeli tiket wisata seharga Rp 170.000? jika iya ketik y");
+                scanf("%c", &pesan_tiket_wisata);
+                if (pesan_tiket_wisata == 'y' || pesan_tiket_wisata == 'Y'){
+                        strcpy(order[jumlah_pesanan].paket, menu_paket[0]);
+                order[jumlah_pesanan].kuantitas = jumlah;
+                order[jumlah_pesanan].subtotal = 350000 * jumlah + tiket_pulang_pergi + 170000;
+                order[jumlah_pesanan].tanggal_mulai = pilih_tanggal_mulai;
+                order[jumlah_pesanan].tanggal_selesai = pilih_tanggal_mulai + jumlah;
+                jumlah_pesanan += 1;}
+
+                else{
                 strcpy(order[jumlah_pesanan].paket, menu_paket[0]);
                 order[jumlah_pesanan].kuantitas = jumlah;
                 order[jumlah_pesanan].subtotal = 350000 * jumlah + tiket_pulang_pergi;
                 order[jumlah_pesanan].tanggal_mulai = pilih_tanggal_mulai;
                 order[jumlah_pesanan].tanggal_selesai = pilih_tanggal_mulai + jumlah;
                 jumlah_pesanan += 1;
+                }
+                break;
 
                     case 'c' :
                 printf("berapa hari anda ingin mengambil waktu liburan : ");
                 scanf("%i", &jumlah);
                 printf("silahkan pilih tanggal berangkat : ");
                 scanf("%i", &pilih_tanggal_mulai);
+                getchar();
+                printf("ingin membeli tiket wisata seharga Rp 170.000? jika iya ketik y");
+                scanf("%c", &pesan_tiket_wisata);
+                if (pesan_tiket_wisata == 'y' || pesan_tiket_wisata == 'Y'){
+                        strcpy(order[jumlah_pesanan].paket, menu_paket[0]);
+                order[jumlah_pesanan].kuantitas = jumlah;
+                order[jumlah_pesanan].subtotal = 400000 * jumlah + tiket_pulang_pergi + 170000;
+                order[jumlah_pesanan].tanggal_mulai = pilih_tanggal_mulai;
+                order[jumlah_pesanan].tanggal_selesai = pilih_tanggal_mulai + jumlah;
+                jumlah_pesanan += 1;}
+
+                else{
                 strcpy(order[jumlah_pesanan].paket, menu_paket[0]);
                 order[jumlah_pesanan].kuantitas = jumlah;
                 order[jumlah_pesanan].subtotal = 400000 * jumlah + tiket_pulang_pergi;
                 order[jumlah_pesanan].tanggal_mulai = pilih_tanggal_mulai;
                 order[jumlah_pesanan].tanggal_selesai = pilih_tanggal_mulai + jumlah;
                 jumlah_pesanan += 1;
+                }
+                break;
 
                 }
 
@@ -225,7 +311,7 @@ void menu(){
             break;
             case 3 :
             printf("\n1. paket C tujuan kota C dengan waktu 4 hari dengan harga 2.000.000\n");
-            printf("2. paket A tujuan kota A dengan harga dan tempat yang menyesuaikan\n");
+            printf("2. paket C tujuan kota C dengan harga dan tempat yang menyesuaikan\n");
             printf("3. paket C tujuan kota C dengan harga 550.000/hari, bisa milih waktu sesuai kebutuhan.\n\n");
             getchar();
             printf("apakah anda ingin memesan Y/N: ");
@@ -256,36 +342,78 @@ void menu(){
                 scanf("%i", &jumlah);
                 printf("silahkan pilih tanggal berangkat : ");
                 scanf("%i", &pilih_tanggal_mulai);
+                getchar();
+                printf("ingin membeli tiket wisata seharga Rp 170.000? jika iya ketik y");
+                scanf("%c", &pesan_tiket_wisata);
+                if (pesan_tiket_wisata == 'y' || pesan_tiket_wisata == 'Y'){
+                strcpy(order[jumlah_pesanan].paket, menu_paket[0]);
+                order[jumlah_pesanan].kuantitas = jumlah;
+                order[jumlah_pesanan].subtotal = 150000 * jumlah + tiket_pulang_pergi + 170000;
+                order[jumlah_pesanan].tanggal_mulai = pilih_tanggal_mulai;
+                order[jumlah_pesanan].tanggal_selesai = pilih_tanggal_mulai + jumlah;
+                jumlah_pesanan += 1;}
+
+                else{
                 strcpy(order[jumlah_pesanan].paket, menu_paket[0]);
                 order[jumlah_pesanan].kuantitas = jumlah;
                 order[jumlah_pesanan].subtotal = 150000 * jumlah + tiket_pulang_pergi;
                 order[jumlah_pesanan].tanggal_mulai = pilih_tanggal_mulai;
                 order[jumlah_pesanan].tanggal_selesai = pilih_tanggal_mulai + jumlah;
                 jumlah_pesanan += 1;
+                }
+                break;
 
                     case 'b' :
                 printf("berapa hari anda ingin mengambil waktu liburan : ");
                 scanf("%i", &jumlah);
                 printf("silahkan pilih tanggal berangkat : ");
                 scanf("%i", &pilih_tanggal_mulai);
+                getchar();
+                printf("ingin membeli tiket wisata seharga Rp 170.000? jika iya ketik y");
+                scanf("%c", &pesan_tiket_wisata);
+                if (pesan_tiket_wisata == 'y' || pesan_tiket_wisata == 'Y'){
+                strcpy(order[jumlah_pesanan].paket, menu_paket[0]);
+                order[jumlah_pesanan].kuantitas = jumlah;
+                order[jumlah_pesanan].subtotal = 200000 * jumlah + tiket_pulang_pergi + 170000;
+                order[jumlah_pesanan].tanggal_mulai = pilih_tanggal_mulai;
+                order[jumlah_pesanan].tanggal_selesai = pilih_tanggal_mulai + jumlah;
+                jumlah_pesanan += 1;}
+
+                else{
                 strcpy(order[jumlah_pesanan].paket, menu_paket[0]);
                 order[jumlah_pesanan].kuantitas = jumlah;
                 order[jumlah_pesanan].subtotal = 200000 * jumlah + tiket_pulang_pergi;
                 order[jumlah_pesanan].tanggal_mulai = pilih_tanggal_mulai;
                 order[jumlah_pesanan].tanggal_selesai = pilih_tanggal_mulai + jumlah;
                 jumlah_pesanan += 1;
+                }
+                break;
 
                     case 'c' :
                 printf("berapa hari anda ingin mengambil waktu liburan : ");
                 scanf("%i", &jumlah);
                 printf("silahkan pilih tanggal berangkat : ");
                 scanf("%i", &pilih_tanggal_mulai);
+                getchar();
+                printf("ingin membeli tiket wisata seharga Rp 170.000? jika iya ketik y");
+                scanf("%c", &pesan_tiket_wisata);
+                if (pesan_tiket_wisata == 'y' || pesan_tiket_wisata == 'Y'){
                 strcpy(order[jumlah_pesanan].paket, menu_paket[0]);
                 order[jumlah_pesanan].kuantitas = jumlah;
-                order[jumlah_pesanan].subtotal = 350000 * jumlah + tiket_pulang_pergi;
+                order[jumlah_pesanan].subtotal = 250000 * jumlah + tiket_pulang_pergi + 170000;
+                order[jumlah_pesanan].tanggal_mulai = pilih_tanggal_mulai;
+                order[jumlah_pesanan].tanggal_selesai = pilih_tanggal_mulai + jumlah;
+                jumlah_pesanan += 1;}
+
+                else{
+                strcpy(order[jumlah_pesanan].paket, menu_paket[0]);
+                order[jumlah_pesanan].kuantitas = jumlah;
+                order[jumlah_pesanan].subtotal = 250000 * jumlah + tiket_pulang_pergi;
                 order[jumlah_pesanan].tanggal_mulai = pilih_tanggal_mulai;
                 order[jumlah_pesanan].tanggal_selesai = pilih_tanggal_mulai + jumlah;
                 jumlah_pesanan += 1;
+                }
+                break;
 
                 }
 
