@@ -9,6 +9,7 @@ typedef struct{
     int kuantitas;
     int tanggal_selesai;
     int tanggal_mulai;
+    int diskon;
 } pesanan;
 
 pesanan order[10];
