@@ -177,6 +177,7 @@ void menu(){
 void tampilan_pilihan(){
     printf("Pesanan Kamu : \n\n");
     int total = 0;
+    int diskon, diskon1, diskon2;
     printf("%-20s \t%-20s %-20s\t %-20s\t %-20s\n", "Pesanan", "Kuantitas", "Subtotal", "tanggal mulai", "tanggal selesai");
     for (int i = 0; i < jumlah_pesanan; i++){
         printf("%-20s \t%-20i %-20d\t %-20i\t %-20i\n", order[i].paket, order[i].kuantitas, order[i].subtotal, order[i].tanggal_mulai, order[i].tanggal_selesai);
@@ -184,6 +185,13 @@ void tampilan_pilihan(){
     }
 
     printf("\nTotal : Rp. %i\n", total);
+    diskon = total * 10;
+    diskon1 = diskon / 100;
+    diskon2 = total - diskon1;
+    if (total >= 5000000){
+        printf("karena anda memesan paket lebih dari 5000000 maka anda mendapatkan diskon sebesar 10%%\n");
+        printf("total harga yang harus dibayar %i\n", diskon2);
+    }
     printf("Silahkan lakukan pembayaran!\n");
 }
 //Bagian Program Utama
